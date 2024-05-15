@@ -3,7 +3,7 @@ import {
   AdminShippingOptionsListRes,
   AdminShippingOptionsRes,
 } from "@medusajs/medusa"
-import { Response } from "@medusajs/medusa-js"
+import { Response } from "exposed-medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
 import { UseQueryOptionsWrapper } from "../../../types"

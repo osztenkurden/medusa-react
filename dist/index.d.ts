@@ -1,5 +1,5 @@
-import * as _medusajs_medusa_js from '@medusajs/medusa-js';
-import _medusajs_medusa_js__default, { Response, AdminPostInvitesPayload, AdminCreateUploadPayload, AdminCreateUserPayload, AdminUpdateUserPayload } from '@medusajs/medusa-js';
+import * as exposed_medusa_js from 'exposed-medusa-js';
+import exposed_medusa_js__default, { Response, AdminPostInvitesPayload, AdminCreateUploadPayload, AdminCreateUserPayload, AdminUpdateUserPayload } from 'exposed-medusa-js';
 import * as _tanstack_react_query from '@tanstack/react-query';
 import { QueryClientProviderProps, QueryKey, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
 import React from 'react';
@@ -20,7 +20,7 @@ interface MedusaContextState {
     /**
      * The Medusa JS Client instance.
      */
-    client: _medusajs_medusa_js__default;
+    client: exposed_medusa_js__default;
 }
 /**
  * This hook gives you access to context of {@link MedusaProvider}. It's useful if you want access to the
@@ -416,7 +416,7 @@ declare const useGetCart: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly cart?: Omit<_medusajs_medusa.Cart, "refundable_amount" | "refunded_total"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -443,7 +443,7 @@ declare const useGetCart: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly cart?: Omit<_medusajs_medusa.Cart, "refundable_amount" | "refunded_total"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -470,7 +470,7 @@ declare const useGetCart: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly cart?: Omit<_medusajs_medusa.Cart, "refundable_amount" | "refunded_total"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -497,7 +497,7 @@ declare const useGetCart: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly cart?: Omit<_medusajs_medusa.Cart, "refundable_amount" | "refunded_total"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -542,7 +542,7 @@ type CreateCartReq = StorePostCartReq | undefined;
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useCreateCart: (options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartReq | undefined>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, StorePostCartReq | undefined, unknown>;
+declare const useCreateCart: (options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartReq | undefined>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, StorePostCartReq | undefined, unknown>;
 /**
  * This hook updates a Cart's details. If the cart has payment sessions and the region was not changed,
  * the payment sessions are updated. The cart's totals are also recalculated.
@@ -578,7 +578,7 @@ declare const useCreateCart: (options?: UseMutationOptions<StoreCartsRes, Error,
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useUpdateCart: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartReq, unknown>;
+declare const useUpdateCart: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartReq, unknown>;
 /**
  * This hook completes a cart and place an order or create a swap, based on the cart's type. This includes attempting to authorize the cart's payment.
  * If authorizing the payment requires more action, the cart will not be completed and the order will not be placed or the swap will not be created.
@@ -613,7 +613,7 @@ declare const useUpdateCart: (cartId: string, options?: UseMutationOptions<Store
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useCompleteCart: (cartId: string, options?: UseMutationOptions<StoreCompleteCartRes, Error>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCompleteCartRes>, Error, void, unknown>;
+declare const useCompleteCart: (cartId: string, options?: UseMutationOptions<StoreCompleteCartRes, Error>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCompleteCartRes>, Error, void, unknown>;
 /**
  * This hook creates Payment Sessions for each of the available Payment Providers in the Cart's Region. If there's only one payment session created,
  * it will be selected by default. The creation of the payment session uses the payment provider and may require sending requests to third-party services.
@@ -645,7 +645,7 @@ declare const useCompleteCart: (cartId: string, options?: UseMutationOptions<Sto
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useCreatePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, void, unknown>;
+declare const useCreatePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, void, unknown>;
 /**
  * The details of the payment session to update.
  */
@@ -692,7 +692,7 @@ type UpdatePaymentSessionReq = StorePostCartsCartPaymentSessionUpdateReq & {
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useUpdatePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, UpdatePaymentSessionReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, UpdatePaymentSessionReq, unknown>;
+declare const useUpdatePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, UpdatePaymentSessionReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, UpdatePaymentSessionReq, unknown>;
 /**
  * The details of the payment session to refresh.
  */
@@ -736,7 +736,7 @@ type RefreshPaymentSessionMutationData = {
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useRefreshPaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, RefreshPaymentSessionMutationData>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, RefreshPaymentSessionMutationData, unknown>;
+declare const useRefreshPaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, RefreshPaymentSessionMutationData>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, RefreshPaymentSessionMutationData, unknown>;
 /**
  * This hook selects the Payment Session that will be used to complete the cart. This is typically used when the customer chooses their preferred payment method during checkout.
  * The totals of the cart will be recalculated.
@@ -772,7 +772,7 @@ declare const useRefreshPaymentSession: (cartId: string, options?: UseMutationOp
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useSetPaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartPaymentSessionReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartPaymentSessionReq, unknown>;
+declare const useSetPaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartPaymentSessionReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartPaymentSessionReq, unknown>;
 /**
  * This hook adds a shipping method to the cart. The validation of the `data` field is handled by the fulfillment provider of the chosen shipping option.
  *
@@ -807,7 +807,7 @@ declare const useSetPaymentSession: (cartId: string, options?: UseMutationOption
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useAddShippingMethodToCart: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartShippingMethodReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartShippingMethodReq, unknown>;
+declare const useAddShippingMethodToCart: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartShippingMethodReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartShippingMethodReq, unknown>;
 /**
  * The details of the payment session to delete.
  */
@@ -851,7 +851,7 @@ type DeletePaymentSessionMutationData = {
  * @customNamespace Hooks.Store.Carts
  * @category Mutations
  */
-declare const useDeletePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, DeletePaymentSessionMutationData>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, DeletePaymentSessionMutationData, unknown>;
+declare const useDeletePaymentSession: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, DeletePaymentSessionMutationData>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, DeletePaymentSessionMutationData, unknown>;
 /**
  * This hook allows you to create a cart and set its payment session as a preparation for checkout.
  * It performs the same actions as the {@link useCreateCart} and {@link useCreatePaymentSession} hooks.
@@ -942,7 +942,7 @@ declare const useCollection: (id: string, options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -969,7 +969,7 @@ declare const useCollection: (id: string, options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -996,7 +996,7 @@ declare const useCollection: (id: string, options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1023,7 +1023,7 @@ declare const useCollection: (id: string, options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of product collections. The product collections can be filtered by fields such as `handle` or `created_at` passed in the `query` parameter.
@@ -1128,7 +1128,7 @@ declare const useCollections: (query?: StoreGetCollectionsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1158,7 +1158,7 @@ declare const useCollections: (query?: StoreGetCollectionsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -1188,7 +1188,7 @@ declare const useCollections: (query?: StoreGetCollectionsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1218,7 +1218,7 @@ declare const useCollections: (query?: StoreGetCollectionsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const customerKeys: {
@@ -1283,7 +1283,7 @@ declare const useMeCustomer: (options?: UseQueryOptionsWrapper<Response<StoreCus
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: Omit<_medusajs_medusa.Customer, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1310,7 +1310,7 @@ declare const useMeCustomer: (options?: UseQueryOptionsWrapper<Response<StoreCus
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: Omit<_medusajs_medusa.Customer, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -1337,7 +1337,7 @@ declare const useMeCustomer: (options?: UseQueryOptionsWrapper<Response<StoreCus
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: Omit<_medusajs_medusa.Customer, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1364,7 +1364,7 @@ declare const useMeCustomer: (options?: UseQueryOptionsWrapper<Response<StoreCus
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: Omit<_medusajs_medusa.Customer, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of the logged-in customer's orders. The orders can be filtered by fields such as `status` or `fulfillment_status`. The orders can also be paginated.
@@ -1427,7 +1427,7 @@ declare const useCustomerOrders: (query?: StoreGetCustomersCustomerOrdersParams,
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1457,7 +1457,7 @@ declare const useCustomerOrders: (query?: StoreGetCustomersCustomerOrdersParams,
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -1487,7 +1487,7 @@ declare const useCustomerOrders: (query?: StoreGetCustomersCustomerOrdersParams,
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1517,7 +1517,7 @@ declare const useCustomerOrders: (query?: StoreGetCustomersCustomerOrdersParams,
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -1556,7 +1556,7 @@ declare const useCustomerOrders: (query?: StoreGetCustomersCustomerOrdersParams,
  * @customNamespace Hooks.Store.Customers
  * @category Mutations
  */
-declare const useCreateCustomer: (options?: UseMutationOptions<StoreCustomersRes, Error, StorePostCustomersReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCustomersRes>, Error, StorePostCustomersReq, unknown>;
+declare const useCreateCustomer: (options?: UseMutationOptions<StoreCustomersRes, Error, StorePostCustomersReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCustomersRes>, Error, StorePostCustomersReq, unknown>;
 type UpdateMeReq = StorePostCustomersCustomerReq & {
     /**
      * The customer's ID.
@@ -1600,7 +1600,7 @@ type UpdateMeReq = StorePostCustomersCustomerReq & {
  * @customNamespace Hooks.Store.Customers
  * @category Mutations
  */
-declare const useUpdateMe: (options?: UseMutationOptions<StoreCustomersRes, Error, UpdateMeReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCustomersRes>, Error, UpdateMeReq, unknown>;
+declare const useUpdateMe: (options?: UseMutationOptions<StoreCustomersRes, Error, UpdateMeReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCustomersRes>, Error, UpdateMeReq, unknown>;
 
 declare const giftCardKeys: TQueryKey<"gift_cards", any, string>;
 type GiftCardQueryKey = typeof giftCardKeys;
@@ -1660,7 +1660,7 @@ declare const useGiftCard: (id: string, options?: UseQueryOptionsWrapper<Respons
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1687,7 +1687,7 @@ declare const useGiftCard: (id: string, options?: UseQueryOptionsWrapper<Respons
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -1714,7 +1714,7 @@ declare const useGiftCard: (id: string, options?: UseQueryOptionsWrapper<Respons
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1741,7 +1741,7 @@ declare const useGiftCard: (id: string, options?: UseQueryOptionsWrapper<Respons
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -1780,7 +1780,7 @@ declare const useGiftCard: (id: string, options?: UseQueryOptionsWrapper<Respons
  * @customNamespace Hooks.Store.Line Items
  * @category Mutations
  */
-declare const useCreateLineItem: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartLineItemsReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartLineItemsReq, unknown>;
+declare const useCreateLineItem: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartLineItemsReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, StorePostCartsCartLineItemsReq, unknown>;
 type UpdateLineItemReq = StorePostCartsCartLineItemsItemReq & {
     /**
      * The line item's ID.
@@ -1823,7 +1823,7 @@ type UpdateLineItemReq = StorePostCartsCartLineItemsItemReq & {
  * @customNamespace Hooks.Store.Line Items
  * @category Mutations
  */
-declare const useUpdateLineItem: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, UpdateLineItemReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, UpdateLineItemReq, unknown>;
+declare const useUpdateLineItem: (cartId: string, options?: UseMutationOptions<StoreCartsRes, Error, UpdateLineItemReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, UpdateLineItemReq, unknown>;
 /**
  * This hook deletes a line item from a cart. The payment sessions will be updated and the totals will be recalculated.
  *
@@ -1863,7 +1863,7 @@ declare const useDeleteLineItem: (cartId: string, options?: UseMutationOptions<S
      * The line item's ID.
      */
     lineId: string;
-}>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreCartsRes>, Error, {
+}>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreCartsRes>, Error, {
     /**
      * The line item's ID.
      */
@@ -1931,7 +1931,7 @@ declare const useOrderEdit: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: Omit<_medusajs_medusa.OrderEdit, "internal_note" | "created_by" | "confirmed_by" | "canceled_by"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -1958,7 +1958,7 @@ declare const useOrderEdit: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: Omit<_medusajs_medusa.OrderEdit, "internal_note" | "created_by" | "confirmed_by" | "canceled_by"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -1985,7 +1985,7 @@ declare const useOrderEdit: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: Omit<_medusajs_medusa.OrderEdit, "internal_note" | "created_by" | "confirmed_by" | "canceled_by"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2012,7 +2012,7 @@ declare const useOrderEdit: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: Omit<_medusajs_medusa.OrderEdit, "internal_note" | "created_by" | "confirmed_by" | "canceled_by"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -2155,7 +2155,7 @@ declare const useOrder: (id: string, options?: UseQueryOptionsWrapper<Response<S
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2182,7 +2182,7 @@ declare const useOrder: (id: string, options?: UseQueryOptionsWrapper<Response<S
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -2209,7 +2209,7 @@ declare const useOrder: (id: string, options?: UseQueryOptionsWrapper<Response<S
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2236,7 +2236,7 @@ declare const useOrder: (id: string, options?: UseQueryOptionsWrapper<Response<S
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves an order's details by the ID of the cart that was used to create the order.
@@ -2295,7 +2295,7 @@ declare const useCartOrder: (cartId: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2322,7 +2322,7 @@ declare const useCartOrder: (cartId: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -2349,7 +2349,7 @@ declare const useCartOrder: (cartId: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2376,7 +2376,7 @@ declare const useCartOrder: (cartId: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook looks up an order using filters. If the filters don't narrow down the results to a single order, a `404` response is returned with no orders.
@@ -2442,7 +2442,7 @@ declare const useOrders: (query: StoreGetOrdersParams, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2469,7 +2469,7 @@ declare const useOrders: (query: StoreGetOrdersParams, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -2496,7 +2496,7 @@ declare const useOrders: (query: StoreGetOrdersParams, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2523,7 +2523,7 @@ declare const useOrders: (query: StoreGetOrdersParams, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -2563,7 +2563,7 @@ declare const useOrders: (query: StoreGetOrdersParams, options?: UseQueryOptions
  * @category Mutations
  */
 declare const useRequestOrderAccess: (options?: UseMutationOptions<Response<{}>, Error, StorePostCustomersCustomerOrderClaimReq>) => _tanstack_react_query.UseMutationResult<{
-    response: _medusajs_medusa_js.HTTPResponse;
+    response: exposed_medusa_js.HTTPResponse;
 }, Error, StorePostCustomersCustomerOrderClaimReq, unknown>;
 /**
  * This hook verifies the claim order token provided to the customer when they request ownership of an order.
@@ -2599,7 +2599,7 @@ declare const useRequestOrderAccess: (options?: UseMutationOptions<Response<{}>,
  * @category Mutations
  */
 declare const useGrantOrderAccess: (options?: UseMutationOptions<Response<{}>, Error, StorePostCustomersCustomerAcceptClaimReq>) => _tanstack_react_query.UseMutationResult<{
-    response: _medusajs_medusa_js.HTTPResponse;
+    response: exposed_medusa_js.HTTPResponse;
 }, Error, StorePostCustomersCustomerAcceptClaimReq, unknown>;
 
 declare const paymentCollectionQueryKeys: TQueryKey<"paymentCollection", any, string>;
@@ -2666,7 +2666,7 @@ declare const usePaymentCollection: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2693,7 +2693,7 @@ declare const usePaymentCollection: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -2720,7 +2720,7 @@ declare const usePaymentCollection: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -2747,7 +2747,7 @@ declare const usePaymentCollection: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -3195,7 +3195,7 @@ declare const useProductCategories: (query?: StoreGetProductCategoriesParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3225,7 +3225,7 @@ declare const useProductCategories: (query?: StoreGetProductCategoriesParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -3255,7 +3255,7 @@ declare const useProductCategories: (query?: StoreGetProductCategoriesParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3285,7 +3285,7 @@ declare const useProductCategories: (query?: StoreGetProductCategoriesParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a Product Category's details.
@@ -3375,7 +3375,7 @@ declare const useProductCategory: (id: string, query?: StoreGetProductCategories
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3402,7 +3402,7 @@ declare const useProductCategory: (id: string, query?: StoreGetProductCategories
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -3429,7 +3429,7 @@ declare const useProductCategory: (id: string, query?: StoreGetProductCategories
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3456,7 +3456,7 @@ declare const useProductCategory: (id: string, query?: StoreGetProductCategories
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const productTagKeys: TQueryKey<"product_tags", any, string>;
@@ -3571,7 +3571,7 @@ declare const useProductTags: (query?: StoreGetProductTagsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3601,7 +3601,7 @@ declare const useProductTags: (query?: StoreGetProductTagsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -3631,7 +3631,7 @@ declare const useProductTags: (query?: StoreGetProductTagsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3661,7 +3661,7 @@ declare const useProductTags: (query?: StoreGetProductTagsParams, options?: UseQ
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const productTypeKeys: TQueryKey<"product_types", any, string>;
@@ -3776,7 +3776,7 @@ declare const useProductTypes: (query?: StoreGetProductTypesParams, options?: Us
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3806,7 +3806,7 @@ declare const useProductTypes: (query?: StoreGetProductTypesParams, options?: Us
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -3836,7 +3836,7 @@ declare const useProductTypes: (query?: StoreGetProductTypesParams, options?: Us
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -3866,7 +3866,7 @@ declare const useProductTypes: (query?: StoreGetProductTypesParams, options?: Us
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const productKeys: TQueryKey<"products", StoreGetProductsParams, string>;
@@ -4006,7 +4006,7 @@ declare const useProducts: (query?: StoreGetProductsParams, options?: UseQueryOp
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: _medusajs_medusa_dist_types_pricing.PricedProduct[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4036,7 +4036,7 @@ declare const useProducts: (query?: StoreGetProductsParams, options?: UseQueryOp
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: _medusajs_medusa_dist_types_pricing.PricedProduct[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4066,7 +4066,7 @@ declare const useProducts: (query?: StoreGetProductsParams, options?: UseQueryOp
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: _medusajs_medusa_dist_types_pricing.PricedProduct[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4096,7 +4096,7 @@ declare const useProducts: (query?: StoreGetProductsParams, options?: UseQueryOp
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: _medusajs_medusa_dist_types_pricing.PricedProduct[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a Product's details. For accurate and correct pricing of the product based on the customer's context, it's highly recommended to pass fields such as
@@ -4155,7 +4155,7 @@ declare const useProduct: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa_dist_types_pricing.PricedProduct | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4182,7 +4182,7 @@ declare const useProduct: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa_dist_types_pricing.PricedProduct | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4209,7 +4209,7 @@ declare const useProduct: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa_dist_types_pricing.PricedProduct | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4236,7 +4236,7 @@ declare const useProduct: (id: string, options?: UseQueryOptionsWrapper<Response
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa_dist_types_pricing.PricedProduct | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const regionsKey: TQueryKey<"regions", any, string>;
@@ -4301,7 +4301,7 @@ declare const useRegions: (options?: UseQueryOptionsWrapper<Response<StoreRegion
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4331,7 +4331,7 @@ declare const useRegions: (options?: UseQueryOptionsWrapper<Response<StoreRegion
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4361,7 +4361,7 @@ declare const useRegions: (options?: UseQueryOptionsWrapper<Response<StoreRegion
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4391,7 +4391,7 @@ declare const useRegions: (options?: UseQueryOptionsWrapper<Response<StoreRegion
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a Region's details.
@@ -4448,7 +4448,7 @@ declare const useRegion: (id: string, options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4475,7 +4475,7 @@ declare const useRegion: (id: string, options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4502,7 +4502,7 @@ declare const useRegion: (id: string, options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4529,7 +4529,7 @@ declare const useRegion: (id: string, options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const returnReasonsKey: TQueryKey<"return_reasons", any, string>;
@@ -4594,7 +4594,7 @@ declare const useReturnReasons: (options?: UseQueryOptionsWrapper<Response<Store
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4621,7 +4621,7 @@ declare const useReturnReasons: (options?: UseQueryOptionsWrapper<Response<Store
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4648,7 +4648,7 @@ declare const useReturnReasons: (options?: UseQueryOptionsWrapper<Response<Store
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4675,7 +4675,7 @@ declare const useReturnReasons: (options?: UseQueryOptionsWrapper<Response<Store
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a Return Reason's details.
@@ -4735,7 +4735,7 @@ declare const useReturnReason: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4762,7 +4762,7 @@ declare const useReturnReason: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4789,7 +4789,7 @@ declare const useReturnReason: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4816,7 +4816,7 @@ declare const useReturnReason: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -4863,7 +4863,7 @@ declare const useReturnReason: (id: string, options?: UseQueryOptionsWrapper<Res
  * @customNamespace Hooks.Store.Returns
  * @category Mutations
  */
-declare const useCreateReturn: (options?: UseMutationOptions<StoreReturnsRes, Error, StorePostReturnsReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreReturnsRes>, Error, StorePostReturnsReq, unknown>;
+declare const useCreateReturn: (options?: UseMutationOptions<StoreReturnsRes, Error, StorePostReturnsReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreReturnsRes>, Error, StorePostReturnsReq, unknown>;
 
 declare const shippingOptionKey: {
     cart: (cartId: string) => readonly ["shipping_options", "cart", string];
@@ -4937,7 +4937,7 @@ declare const useShippingOptions: (query?: StoreGetShippingOptionsParams, option
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -4964,7 +4964,7 @@ declare const useShippingOptions: (query?: StoreGetShippingOptionsParams, option
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -4991,7 +4991,7 @@ declare const useShippingOptions: (query?: StoreGetShippingOptionsParams, option
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5018,7 +5018,7 @@ declare const useShippingOptions: (query?: StoreGetShippingOptionsParams, option
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of shipping options available for a cart.
@@ -5087,7 +5087,7 @@ declare const useCartShippingOptions: (cartId: string, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5114,7 +5114,7 @@ declare const useCartShippingOptions: (cartId: string, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -5141,7 +5141,7 @@ declare const useCartShippingOptions: (cartId: string, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5168,7 +5168,7 @@ declare const useCartShippingOptions: (cartId: string, options?: UseQueryOptions
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_options?: _medusajs_medusa_dist_types_pricing.PricedShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const swapKey: {
@@ -5239,7 +5239,7 @@ declare const useCartSwap: (cartId: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5266,7 +5266,7 @@ declare const useCartSwap: (cartId: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -5293,7 +5293,7 @@ declare const useCartSwap: (cartId: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5320,7 +5320,7 @@ declare const useCartSwap: (cartId: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -5378,7 +5378,7 @@ declare const useCartSwap: (cartId: string, options?: UseQueryOptionsWrapper<Res
  * @customNamespace Hooks.Store.Swaps
  * @category Mutations
  */
-declare const useCreateSwap: (options?: UseMutationOptions<StoreSwapsRes, Error, StorePostSwapsReq>) => _tanstack_react_query.UseMutationResult<_medusajs_medusa_js.Response<StoreSwapsRes>, Error, StorePostSwapsReq, unknown>;
+declare const useCreateSwap: (options?: UseMutationOptions<StoreSwapsRes, Error, StorePostSwapsReq>) => _tanstack_react_query.UseMutationResult<exposed_medusa_js.Response<StoreSwapsRes>, Error, StorePostSwapsReq, unknown>;
 
 /**
  * @packageDocumentation
@@ -5594,7 +5594,7 @@ declare const useAdminGetSession: (options?: UseQueryOptionsWrapper<Response<Adm
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5621,7 +5621,7 @@ declare const useAdminGetSession: (options?: UseQueryOptionsWrapper<Response<Adm
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -5648,7 +5648,7 @@ declare const useAdminGetSession: (options?: UseQueryOptionsWrapper<Response<Adm
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5675,7 +5675,7 @@ declare const useAdminGetSession: (options?: UseQueryOptionsWrapper<Response<Adm
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -5890,7 +5890,7 @@ declare const useAdminBatchJobs: (query?: AdminGetBatchParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly batch_jobs?: _medusajs_medusa.BatchJob[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5920,7 +5920,7 @@ declare const useAdminBatchJobs: (query?: AdminGetBatchParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly batch_jobs?: _medusajs_medusa.BatchJob[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -5950,7 +5950,7 @@ declare const useAdminBatchJobs: (query?: AdminGetBatchParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly batch_jobs?: _medusajs_medusa.BatchJob[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -5980,7 +5980,7 @@ declare const useAdminBatchJobs: (query?: AdminGetBatchParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly batch_jobs?: _medusajs_medusa.BatchJob[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves the details of a batch job.
@@ -6035,7 +6035,7 @@ declare const useAdminBatchJob: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly batch_job?: _medusajs_medusa.BatchJob | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6062,7 +6062,7 @@ declare const useAdminBatchJob: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly batch_job?: _medusajs_medusa.BatchJob | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -6089,7 +6089,7 @@ declare const useAdminBatchJob: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly batch_job?: _medusajs_medusa.BatchJob | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6116,7 +6116,7 @@ declare const useAdminBatchJob: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly batch_job?: _medusajs_medusa.BatchJob | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -6573,7 +6573,7 @@ declare const useAdminCollections: (query?: AdminGetCollectionsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6603,7 +6603,7 @@ declare const useAdminCollections: (query?: AdminGetCollectionsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -6633,7 +6633,7 @@ declare const useAdminCollections: (query?: AdminGetCollectionsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6663,7 +6663,7 @@ declare const useAdminCollections: (query?: AdminGetCollectionsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly collections?: _medusajs_medusa.ProductCollection[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a product collection by its ID. The products associated with it are expanded and returned as well.
@@ -6718,7 +6718,7 @@ declare const useAdminCollection: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6745,7 +6745,7 @@ declare const useAdminCollection: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -6772,7 +6772,7 @@ declare const useAdminCollection: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -6799,7 +6799,7 @@ declare const useAdminCollection: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly collection?: _medusajs_medusa.ProductCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -7103,7 +7103,7 @@ declare const useAdminCurrencies: (query?: AdminGetCurrenciesParams, options?: U
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly currencies?: _medusajs_medusa.Currency[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7133,7 +7133,7 @@ declare const useAdminCurrencies: (query?: AdminGetCurrenciesParams, options?: U
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly currencies?: _medusajs_medusa.Currency[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -7163,7 +7163,7 @@ declare const useAdminCurrencies: (query?: AdminGetCurrenciesParams, options?: U
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly currencies?: _medusajs_medusa.Currency[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7193,7 +7193,7 @@ declare const useAdminCurrencies: (query?: AdminGetCurrenciesParams, options?: U
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly currencies?: _medusajs_medusa.Currency[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 type RelatedDomain = "product" | "customer" | "customer_group" | "order" | "discount" | "gift_card" | "price_list";
@@ -7524,7 +7524,7 @@ declare const useAdminCustomerGroup: (id: string, query?: AdminGetCustomerGroups
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer_group?: _medusajs_medusa.CustomerGroup | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7551,7 +7551,7 @@ declare const useAdminCustomerGroup: (id: string, query?: AdminGetCustomerGroups
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer_group?: _medusajs_medusa.CustomerGroup | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -7578,7 +7578,7 @@ declare const useAdminCustomerGroup: (id: string, query?: AdminGetCustomerGroups
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer_group?: _medusajs_medusa.CustomerGroup | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7605,7 +7605,7 @@ declare const useAdminCustomerGroup: (id: string, query?: AdminGetCustomerGroups
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer_group?: _medusajs_medusa.CustomerGroup | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of customer groups. The customer groups can be filtered by fields such as `name` or `id`.
@@ -7760,7 +7760,7 @@ declare const useAdminCustomerGroups: (query?: AdminGetCustomerGroupsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customer_groups?: _medusajs_medusa.CustomerGroup[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7790,7 +7790,7 @@ declare const useAdminCustomerGroups: (query?: AdminGetCustomerGroupsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customer_groups?: _medusajs_medusa.CustomerGroup[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -7820,7 +7820,7 @@ declare const useAdminCustomerGroups: (query?: AdminGetCustomerGroupsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customer_groups?: _medusajs_medusa.CustomerGroup[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7850,7 +7850,7 @@ declare const useAdminCustomerGroups: (query?: AdminGetCustomerGroupsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customer_groups?: _medusajs_medusa.CustomerGroup[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of customers in a customer group. The customers can be filtered
@@ -7923,7 +7923,7 @@ declare const useAdminCustomerGroupCustomers: (id: string, query?: AdminGetCusto
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -7953,7 +7953,7 @@ declare const useAdminCustomerGroupCustomers: (id: string, query?: AdminGetCusto
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -7983,7 +7983,7 @@ declare const useAdminCustomerGroupCustomers: (id: string, query?: AdminGetCusto
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8013,7 +8013,7 @@ declare const useAdminCustomerGroupCustomers: (id: string, query?: AdminGetCusto
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -8290,7 +8290,7 @@ declare const useAdminCustomers: (query?: AdminGetCustomersParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8320,7 +8320,7 @@ declare const useAdminCustomers: (query?: AdminGetCustomersParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -8350,7 +8350,7 @@ declare const useAdminCustomers: (query?: AdminGetCustomersParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8380,7 +8380,7 @@ declare const useAdminCustomers: (query?: AdminGetCustomersParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly customers?: _medusajs_medusa.Customer[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves the details of a customer.
@@ -8437,7 +8437,7 @@ declare const useAdminCustomer: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: _medusajs_medusa.Customer | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8464,7 +8464,7 @@ declare const useAdminCustomer: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: _medusajs_medusa.Customer | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -8491,7 +8491,7 @@ declare const useAdminCustomer: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: _medusajs_medusa.Customer | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8518,7 +8518,7 @@ declare const useAdminCustomer: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly customer?: _medusajs_medusa.Customer | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -8738,7 +8738,7 @@ declare const useAdminDiscounts: (query?: AdminGetDiscountsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly discounts?: _medusajs_medusa.Discount[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8768,7 +8768,7 @@ declare const useAdminDiscounts: (query?: AdminGetDiscountsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly discounts?: _medusajs_medusa.Discount[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -8798,7 +8798,7 @@ declare const useAdminDiscounts: (query?: AdminGetDiscountsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly discounts?: _medusajs_medusa.Discount[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8828,7 +8828,7 @@ declare const useAdminDiscounts: (query?: AdminGetDiscountsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly discounts?: _medusajs_medusa.Discount[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a discount.
@@ -8885,7 +8885,7 @@ declare const useAdminDiscount: (id: string, query?: AdminGetDiscountParams, opt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8912,7 +8912,7 @@ declare const useAdminDiscount: (id: string, query?: AdminGetDiscountParams, opt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -8939,7 +8939,7 @@ declare const useAdminDiscount: (id: string, query?: AdminGetDiscountParams, opt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -8966,7 +8966,7 @@ declare const useAdminDiscount: (id: string, query?: AdminGetDiscountParams, opt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook adds a batch of resources to a discount condition. The type of resource depends on the type of discount condition. For example, if the discount condition's type is `products`,
@@ -9024,7 +9024,7 @@ declare const useAdminGetDiscountByCode: (code: string, options?: UseQueryOption
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9051,7 +9051,7 @@ declare const useAdminGetDiscountByCode: (code: string, options?: UseQueryOption
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -9078,7 +9078,7 @@ declare const useAdminGetDiscountByCode: (code: string, options?: UseQueryOption
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9105,7 +9105,7 @@ declare const useAdminGetDiscountByCode: (code: string, options?: UseQueryOption
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount?: _medusajs_medusa.Discount | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retries a Discount Condition's details.
@@ -9172,7 +9172,7 @@ declare const useAdminGetDiscountCondition: (id: string, conditionId: string, qu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount_condition?: _medusajs_medusa.DiscountCondition | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9199,7 +9199,7 @@ declare const useAdminGetDiscountCondition: (id: string, conditionId: string, qu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount_condition?: _medusajs_medusa.DiscountCondition | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -9226,7 +9226,7 @@ declare const useAdminGetDiscountCondition: (id: string, conditionId: string, qu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount_condition?: _medusajs_medusa.DiscountCondition | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9253,7 +9253,7 @@ declare const useAdminGetDiscountCondition: (id: string, conditionId: string, qu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly discount_condition?: _medusajs_medusa.DiscountCondition | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -9873,7 +9873,7 @@ declare const useAdminDraftOrders: (query?: AdminGetDraftOrdersParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly draft_orders?: _medusajs_medusa.DraftOrder[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9903,7 +9903,7 @@ declare const useAdminDraftOrders: (query?: AdminGetDraftOrdersParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly draft_orders?: _medusajs_medusa.DraftOrder[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -9933,7 +9933,7 @@ declare const useAdminDraftOrders: (query?: AdminGetDraftOrdersParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly draft_orders?: _medusajs_medusa.DraftOrder[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -9963,7 +9963,7 @@ declare const useAdminDraftOrders: (query?: AdminGetDraftOrdersParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly draft_orders?: _medusajs_medusa.DraftOrder[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a Draft Order's details.
@@ -10022,7 +10022,7 @@ declare const useAdminDraftOrder: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly draft_order?: _medusajs_medusa.DraftOrder | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10049,7 +10049,7 @@ declare const useAdminDraftOrder: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly draft_order?: _medusajs_medusa.DraftOrder | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -10076,7 +10076,7 @@ declare const useAdminDraftOrder: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly draft_order?: _medusajs_medusa.DraftOrder | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10103,7 +10103,7 @@ declare const useAdminDraftOrder: (id: string, options?: UseQueryOptionsWrapper<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly draft_order?: _medusajs_medusa.DraftOrder | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -10475,7 +10475,7 @@ declare const useAdminGiftCards: (query?: AdminGetGiftCardsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly gift_cards?: _medusajs_medusa.GiftCard[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10505,7 +10505,7 @@ declare const useAdminGiftCards: (query?: AdminGetGiftCardsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly gift_cards?: _medusajs_medusa.GiftCard[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -10535,7 +10535,7 @@ declare const useAdminGiftCards: (query?: AdminGetGiftCardsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly gift_cards?: _medusajs_medusa.GiftCard[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10565,7 +10565,7 @@ declare const useAdminGiftCards: (query?: AdminGetGiftCardsParams, options?: Use
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly gift_cards?: _medusajs_medusa.GiftCard[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a gift card's details.
@@ -10620,7 +10620,7 @@ declare const useAdminGiftCard: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10647,7 +10647,7 @@ declare const useAdminGiftCard: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -10674,7 +10674,7 @@ declare const useAdminGiftCard: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10701,7 +10701,7 @@ declare const useAdminGiftCard: (id: string, options?: UseQueryOptionsWrapper<Re
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly gift_card?: _medusajs_medusa.GiftCard | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -10921,7 +10921,7 @@ declare const useAdminInventoryItems: (query?: AdminGetInventoryItemsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly inventory_items?: _medusajs_medusa.DecoratedInventoryItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -10951,7 +10951,7 @@ declare const useAdminInventoryItems: (query?: AdminGetInventoryItemsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly inventory_items?: _medusajs_medusa.DecoratedInventoryItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -10981,7 +10981,7 @@ declare const useAdminInventoryItems: (query?: AdminGetInventoryItemsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly inventory_items?: _medusajs_medusa.DecoratedInventoryItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11011,7 +11011,7 @@ declare const useAdminInventoryItems: (query?: AdminGetInventoryItemsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly inventory_items?: _medusajs_medusa.DecoratedInventoryItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves an Inventory Item's details.
@@ -11071,7 +11071,7 @@ declare const useAdminInventoryItem: (inventoryItemId: string, query?: AdminGetS
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly inventory_item?: _medusajs_types.InventoryItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11098,7 +11098,7 @@ declare const useAdminInventoryItem: (inventoryItemId: string, query?: AdminGetS
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly inventory_item?: _medusajs_types.InventoryItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -11125,7 +11125,7 @@ declare const useAdminInventoryItem: (inventoryItemId: string, query?: AdminGetS
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly inventory_item?: _medusajs_types.InventoryItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11152,7 +11152,7 @@ declare const useAdminInventoryItem: (inventoryItemId: string, query?: AdminGetS
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly inventory_item?: _medusajs_types.InventoryItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of inventory levels of an inventory item. The inventory levels can be filtered by fields
@@ -11222,7 +11222,7 @@ declare const useAdminInventoryItemLocationLevels: (inventoryItemId: string, que
         id: any;
         location_levels: _medusajs_types.InventoryLevelDTO[];
     } | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11252,7 +11252,7 @@ declare const useAdminInventoryItemLocationLevels: (inventoryItemId: string, que
         id: any;
         location_levels: _medusajs_types.InventoryLevelDTO[];
     } | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -11282,7 +11282,7 @@ declare const useAdminInventoryItemLocationLevels: (inventoryItemId: string, que
         id: any;
         location_levels: _medusajs_types.InventoryLevelDTO[];
     } | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11312,7 +11312,7 @@ declare const useAdminInventoryItemLocationLevels: (inventoryItemId: string, que
         id: any;
         location_levels: _medusajs_types.InventoryLevelDTO[];
     } | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -11592,7 +11592,7 @@ declare const useAdminInvites: (options?: UseQueryOptionsWrapper<Response<AdminL
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly invites?: _medusajs_medusa.Invite[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11619,7 +11619,7 @@ declare const useAdminInvites: (options?: UseQueryOptionsWrapper<Response<AdminL
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly invites?: _medusajs_medusa.Invite[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -11646,7 +11646,7 @@ declare const useAdminInvites: (options?: UseQueryOptionsWrapper<Response<AdminL
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly invites?: _medusajs_medusa.Invite[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11673,7 +11673,7 @@ declare const useAdminInvites: (options?: UseQueryOptionsWrapper<Response<AdminL
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly invites?: _medusajs_medusa.Invite[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -11886,7 +11886,7 @@ declare const useAdminNotes: (query?: AdminGetNotesParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notes?: _medusajs_medusa.Note[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11916,7 +11916,7 @@ declare const useAdminNotes: (query?: AdminGetNotesParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notes?: _medusajs_medusa.Note[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -11946,7 +11946,7 @@ declare const useAdminNotes: (query?: AdminGetNotesParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notes?: _medusajs_medusa.Note[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -11976,7 +11976,7 @@ declare const useAdminNotes: (query?: AdminGetNotesParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notes?: _medusajs_medusa.Note[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a note's details.
@@ -12031,7 +12031,7 @@ declare const useAdminNote: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly note?: _medusajs_medusa.Note | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12058,7 +12058,7 @@ declare const useAdminNote: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly note?: _medusajs_medusa.Note | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -12085,7 +12085,7 @@ declare const useAdminNote: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly note?: _medusajs_medusa.Note | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12112,7 +12112,7 @@ declare const useAdminNote: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly note?: _medusajs_medusa.Note | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -12349,7 +12349,7 @@ declare const useAdminNotifications: (query?: AdminGetNotificationsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notifications?: _medusajs_medusa.Notification[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12379,7 +12379,7 @@ declare const useAdminNotifications: (query?: AdminGetNotificationsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notifications?: _medusajs_medusa.Notification[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -12409,7 +12409,7 @@ declare const useAdminNotifications: (query?: AdminGetNotificationsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notifications?: _medusajs_medusa.Notification[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12439,7 +12439,7 @@ declare const useAdminNotifications: (query?: AdminGetNotificationsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly notifications?: _medusajs_medusa.Notification[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -12571,7 +12571,7 @@ declare const useAdminOrderEdit: (id: string, query?: GetOrderEditsOrderEditPara
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: _medusajs_medusa.OrderEdit | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12598,7 +12598,7 @@ declare const useAdminOrderEdit: (id: string, query?: GetOrderEditsOrderEditPara
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: _medusajs_medusa.OrderEdit | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -12625,7 +12625,7 @@ declare const useAdminOrderEdit: (id: string, query?: GetOrderEditsOrderEditPara
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: _medusajs_medusa.OrderEdit | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12652,7 +12652,7 @@ declare const useAdminOrderEdit: (id: string, query?: GetOrderEditsOrderEditPara
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order_edit?: _medusajs_medusa.OrderEdit | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of order edits. The order edits can be filtered by fields such as `q` or `order_id` passed to the `query` parameter.
@@ -12795,7 +12795,7 @@ declare const useAdminOrderEdits: (query?: GetOrderEditsParams, options?: UseQue
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly order_edits?: _medusajs_medusa.OrderEdit[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12825,7 +12825,7 @@ declare const useAdminOrderEdits: (query?: GetOrderEditsParams, options?: UseQue
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly order_edits?: _medusajs_medusa.OrderEdit[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -12855,7 +12855,7 @@ declare const useAdminOrderEdits: (query?: GetOrderEditsParams, options?: UseQue
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly order_edits?: _medusajs_medusa.OrderEdit[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -12885,7 +12885,7 @@ declare const useAdminOrderEdits: (query?: GetOrderEditsParams, options?: UseQue
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly order_edits?: _medusajs_medusa.OrderEdit[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -13373,7 +13373,7 @@ declare const useAdminOrders: (query?: AdminGetOrdersParams, options?: UseQueryO
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -13403,7 +13403,7 @@ declare const useAdminOrders: (query?: AdminGetOrdersParams, options?: UseQueryO
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -13433,7 +13433,7 @@ declare const useAdminOrders: (query?: AdminGetOrdersParams, options?: UseQueryO
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -13463,7 +13463,7 @@ declare const useAdminOrders: (query?: AdminGetOrdersParams, options?: UseQueryO
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly orders?: _medusajs_medusa.Order[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieve an order's details.
@@ -13554,7 +13554,7 @@ declare const useAdminOrder: (id: string, query?: FindParams, options?: UseQuery
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -13581,7 +13581,7 @@ declare const useAdminOrder: (id: string, query?: FindParams, options?: UseQuery
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -13608,7 +13608,7 @@ declare const useAdminOrder: (id: string, query?: FindParams, options?: UseQuery
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -13635,7 +13635,7 @@ declare const useAdminOrder: (id: string, query?: FindParams, options?: UseQuery
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly order?: _medusajs_medusa.Order | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -14121,7 +14121,7 @@ declare const useAdminPaymentCollection: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14148,7 +14148,7 @@ declare const useAdminPaymentCollection: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -14175,7 +14175,7 @@ declare const useAdminPaymentCollection: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14202,7 +14202,7 @@ declare const useAdminPaymentCollection: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_collection?: _medusajs_medusa.PaymentCollection | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -14371,7 +14371,7 @@ declare const useAdminPayment: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment?: _medusajs_medusa.Payment | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14398,7 +14398,7 @@ declare const useAdminPayment: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment?: _medusajs_medusa.Payment | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -14425,7 +14425,7 @@ declare const useAdminPayment: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment?: _medusajs_medusa.Payment | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14452,7 +14452,7 @@ declare const useAdminPayment: (id: string, options?: UseQueryOptionsWrapper<Res
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment?: _medusajs_medusa.Payment | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -14679,7 +14679,7 @@ declare const useAdminPriceLists: (query?: AdminGetPriceListPaginationParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly price_lists?: _medusajs_medusa.PriceList[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14709,7 +14709,7 @@ declare const useAdminPriceLists: (query?: AdminGetPriceListPaginationParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly price_lists?: _medusajs_medusa.PriceList[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -14739,7 +14739,7 @@ declare const useAdminPriceLists: (query?: AdminGetPriceListPaginationParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly price_lists?: _medusajs_medusa.PriceList[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14769,7 +14769,7 @@ declare const useAdminPriceLists: (query?: AdminGetPriceListPaginationParams, op
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly price_lists?: _medusajs_medusa.PriceList[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a price list's products. The products can be filtered by fields such as `q` or `status`
@@ -14932,7 +14932,7 @@ declare const useAdminPriceListProducts: (id: string, query?: AdminGetPriceLists
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -14962,7 +14962,7 @@ declare const useAdminPriceListProducts: (id: string, query?: AdminGetPriceLists
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -14992,7 +14992,7 @@ declare const useAdminPriceListProducts: (id: string, query?: AdminGetPriceLists
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15022,7 +15022,7 @@ declare const useAdminPriceListProducts: (id: string, query?: AdminGetPriceLists
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a price list's details.
@@ -15082,7 +15082,7 @@ declare const useAdminPriceList: (id: string, options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly price_list?: _medusajs_medusa.PriceList | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15109,7 +15109,7 @@ declare const useAdminPriceList: (id: string, options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly price_list?: _medusajs_medusa.PriceList | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -15136,7 +15136,7 @@ declare const useAdminPriceList: (id: string, options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly price_list?: _medusajs_medusa.PriceList | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15163,7 +15163,7 @@ declare const useAdminPriceList: (id: string, options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly price_list?: _medusajs_medusa.PriceList | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -15632,7 +15632,7 @@ declare const useAdminProductCategories: (query?: AdminGetProductCategoriesParam
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15662,7 +15662,7 @@ declare const useAdminProductCategories: (query?: AdminGetProductCategoriesParam
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -15692,7 +15692,7 @@ declare const useAdminProductCategories: (query?: AdminGetProductCategoriesParam
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15722,7 +15722,7 @@ declare const useAdminProductCategories: (query?: AdminGetProductCategoriesParam
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_categories?: _medusajs_medusa.ProductCategory[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a product category's details.
@@ -15823,7 +15823,7 @@ declare const useAdminProductCategory: (id: string, query?: AdminGetProductCateg
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15850,7 +15850,7 @@ declare const useAdminProductCategory: (id: string, query?: AdminGetProductCateg
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -15877,7 +15877,7 @@ declare const useAdminProductCategory: (id: string, query?: AdminGetProductCateg
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -15904,7 +15904,7 @@ declare const useAdminProductCategory: (id: string, query?: AdminGetProductCateg
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product_category?: _medusajs_medusa.ProductCategory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -16216,7 +16216,7 @@ declare const useAdminProductTags: (query?: AdminGetProductTagsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16246,7 +16246,7 @@ declare const useAdminProductTags: (query?: AdminGetProductTagsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -16276,7 +16276,7 @@ declare const useAdminProductTags: (query?: AdminGetProductTagsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16306,7 +16306,7 @@ declare const useAdminProductTags: (query?: AdminGetProductTagsParams, options?:
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_tags?: _medusajs_medusa.ProductTag[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const adminProductTypeKeys: TQueryKey<"admin_product_types", any, string>;
@@ -16421,7 +16421,7 @@ declare const useAdminProductTypes: (query?: AdminGetProductTypesParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16451,7 +16451,7 @@ declare const useAdminProductTypes: (query?: AdminGetProductTypesParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -16481,7 +16481,7 @@ declare const useAdminProductTypes: (query?: AdminGetProductTypesParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16511,7 +16511,7 @@ declare const useAdminProductTypes: (query?: AdminGetProductTypesParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly product_types?: _medusajs_medusa.ProductType[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const adminProductKeys: TQueryKey<"admin_products", any, string>;
@@ -16645,7 +16645,7 @@ declare const useAdminProducts: (query?: AdminGetProductsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16675,7 +16675,7 @@ declare const useAdminProducts: (query?: AdminGetProductsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -16705,7 +16705,7 @@ declare const useAdminProducts: (query?: AdminGetProductsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16735,7 +16735,7 @@ declare const useAdminProducts: (query?: AdminGetProductsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly products?: (_medusajs_medusa.Product | _medusajs_medusa_dist_types_pricing.PricedProduct)[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a product's details.
@@ -16794,7 +16794,7 @@ declare const useAdminProduct: (id: string, query?: AdminGetProductParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa.Product | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16821,7 +16821,7 @@ declare const useAdminProduct: (id: string, query?: AdminGetProductParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa.Product | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -16848,7 +16848,7 @@ declare const useAdminProduct: (id: string, query?: AdminGetProductParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa.Product | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16875,7 +16875,7 @@ declare const useAdminProduct: (id: string, query?: AdminGetProductParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly product?: _medusajs_medusa.Product | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of Product Tags with how many times each is used in products.
@@ -16935,7 +16935,7 @@ declare const useAdminProductTagUsage: (options?: UseQueryOptionsWrapper<Respons
     readonly tags?: (Pick<_medusajs_medusa.ProductTag, "value" | "id"> & {
         usage_count: number;
     })[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -16964,7 +16964,7 @@ declare const useAdminProductTagUsage: (options?: UseQueryOptionsWrapper<Respons
     readonly tags?: (Pick<_medusajs_medusa.ProductTag, "value" | "id"> & {
         usage_count: number;
     })[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -16993,7 +16993,7 @@ declare const useAdminProductTagUsage: (options?: UseQueryOptionsWrapper<Respons
     readonly tags?: (Pick<_medusajs_medusa.ProductTag, "value" | "id"> & {
         usage_count: number;
     })[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17022,7 +17022,7 @@ declare const useAdminProductTagUsage: (options?: UseQueryOptionsWrapper<Respons
     readonly tags?: (Pick<_medusajs_medusa.ProductTag, "value" | "id"> & {
         usage_count: number;
     })[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -17490,7 +17490,7 @@ declare const useAdminPublishableApiKey: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly publishable_api_key?: _medusajs_medusa.PublishableApiKey | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17517,7 +17517,7 @@ declare const useAdminPublishableApiKey: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly publishable_api_key?: _medusajs_medusa.PublishableApiKey | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -17544,7 +17544,7 @@ declare const useAdminPublishableApiKey: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly publishable_api_key?: _medusajs_medusa.PublishableApiKey | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17571,7 +17571,7 @@ declare const useAdminPublishableApiKey: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly publishable_api_key?: _medusajs_medusa.PublishableApiKey | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of publishable API keys. The publishable API keys can be filtered by fields such as `q` passed in `query`.
@@ -17690,7 +17690,7 @@ declare const useAdminPublishableApiKeys: (query?: GetPublishableApiKeysParams, 
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly publishable_api_keys?: _medusajs_medusa.PublishableApiKey[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17720,7 +17720,7 @@ declare const useAdminPublishableApiKeys: (query?: GetPublishableApiKeysParams, 
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly publishable_api_keys?: _medusajs_medusa.PublishableApiKey[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -17750,7 +17750,7 @@ declare const useAdminPublishableApiKeys: (query?: GetPublishableApiKeysParams, 
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly publishable_api_keys?: _medusajs_medusa.PublishableApiKey[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17780,7 +17780,7 @@ declare const useAdminPublishableApiKeys: (query?: GetPublishableApiKeysParams, 
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly publishable_api_keys?: _medusajs_medusa.PublishableApiKey[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook lists the sales channels associated with a publishable API key. The sales channels can be
@@ -17852,7 +17852,7 @@ declare const useAdminPublishableApiKeySalesChannels: (id: string, query?: GetPu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17879,7 +17879,7 @@ declare const useAdminPublishableApiKeySalesChannels: (id: string, query?: GetPu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -17906,7 +17906,7 @@ declare const useAdminPublishableApiKeySalesChannels: (id: string, query?: GetPu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -17933,7 +17933,7 @@ declare const useAdminPublishableApiKeySalesChannels: (id: string, query?: GetPu
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -18269,7 +18269,7 @@ declare const useAdminRegions: (query?: AdminGetRegionsParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18299,7 +18299,7 @@ declare const useAdminRegions: (query?: AdminGetRegionsParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -18329,7 +18329,7 @@ declare const useAdminRegions: (query?: AdminGetRegionsParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18359,7 +18359,7 @@ declare const useAdminRegions: (query?: AdminGetRegionsParams, options?: UseQuer
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly regions?: _medusajs_medusa.Region[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a region's details.
@@ -18418,7 +18418,7 @@ declare const useAdminRegion: (id: string, options?: UseQueryOptionsWrapper<Resp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18445,7 +18445,7 @@ declare const useAdminRegion: (id: string, options?: UseQueryOptionsWrapper<Resp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -18472,7 +18472,7 @@ declare const useAdminRegion: (id: string, options?: UseQueryOptionsWrapper<Resp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18499,7 +18499,7 @@ declare const useAdminRegion: (id: string, options?: UseQueryOptionsWrapper<Resp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly region?: _medusajs_medusa.Region | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of fulfillment options available in a region.
@@ -18575,7 +18575,7 @@ declare const useAdminRegionFulfillmentOptions: (regionId: string, options?: Use
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly fulfillment_options?: _medusajs_medusa.FulfillmentOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18602,7 +18602,7 @@ declare const useAdminRegionFulfillmentOptions: (regionId: string, options?: Use
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly fulfillment_options?: _medusajs_medusa.FulfillmentOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -18629,7 +18629,7 @@ declare const useAdminRegionFulfillmentOptions: (regionId: string, options?: Use
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly fulfillment_options?: _medusajs_medusa.FulfillmentOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -18656,7 +18656,7 @@ declare const useAdminRegionFulfillmentOptions: (regionId: string, options?: Use
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly fulfillment_options?: _medusajs_medusa.FulfillmentOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -19254,7 +19254,7 @@ declare const useAdminReservations: (query?: AdminGetReservationsParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly reservations?: _medusajs_types.ReservationItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19284,7 +19284,7 @@ declare const useAdminReservations: (query?: AdminGetReservationsParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly reservations?: _medusajs_types.ReservationItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -19314,7 +19314,7 @@ declare const useAdminReservations: (query?: AdminGetReservationsParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly reservations?: _medusajs_types.ReservationItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19344,7 +19344,7 @@ declare const useAdminReservations: (query?: AdminGetReservationsParams, options
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly reservations?: _medusajs_types.ReservationItemDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a reservation's details.
@@ -19403,7 +19403,7 @@ declare const useAdminReservation: (id: string, options?: UseQueryOptionsWrapper
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly reservation?: _medusajs_types.ReservationItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19430,7 +19430,7 @@ declare const useAdminReservation: (id: string, options?: UseQueryOptionsWrapper
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly reservation?: _medusajs_types.ReservationItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -19457,7 +19457,7 @@ declare const useAdminReservation: (id: string, options?: UseQueryOptionsWrapper
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly reservation?: _medusajs_types.ReservationItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19484,7 +19484,7 @@ declare const useAdminReservation: (id: string, options?: UseQueryOptionsWrapper
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly reservation?: _medusajs_types.ReservationItemDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 declare const adminReturnReasonKeys: TQueryKey<"admin_return_reasons", any, string>;
@@ -19549,7 +19549,7 @@ declare const useAdminReturnReasons: (options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19576,7 +19576,7 @@ declare const useAdminReturnReasons: (options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -19603,7 +19603,7 @@ declare const useAdminReturnReasons: (options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19630,7 +19630,7 @@ declare const useAdminReturnReasons: (options?: UseQueryOptionsWrapper<Response<
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reasons?: _medusajs_medusa.ReturnReason[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a return reason's details.
@@ -19687,7 +19687,7 @@ declare const useAdminReturnReason: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19714,7 +19714,7 @@ declare const useAdminReturnReason: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -19741,7 +19741,7 @@ declare const useAdminReturnReason: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19768,7 +19768,7 @@ declare const useAdminReturnReason: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly return_reason?: _medusajs_medusa.ReturnReason | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -19943,7 +19943,7 @@ declare const useAdminReturns: (options?: UseQueryOptionsWrapper<Response<AdminR
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly returns?: _medusajs_medusa.Return[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -19973,7 +19973,7 @@ declare const useAdminReturns: (options?: UseQueryOptionsWrapper<Response<AdminR
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly returns?: _medusajs_medusa.Return[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -20003,7 +20003,7 @@ declare const useAdminReturns: (options?: UseQueryOptionsWrapper<Response<AdminR
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly returns?: _medusajs_medusa.Return[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20033,7 +20033,7 @@ declare const useAdminReturns: (options?: UseQueryOptionsWrapper<Response<AdminR
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly returns?: _medusajs_medusa.Return[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -20170,7 +20170,7 @@ declare const useAdminSalesChannel: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channel?: _medusajs_medusa.SalesChannel | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20197,7 +20197,7 @@ declare const useAdminSalesChannel: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channel?: _medusajs_medusa.SalesChannel | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -20224,7 +20224,7 @@ declare const useAdminSalesChannel: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channel?: _medusajs_medusa.SalesChannel | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20251,7 +20251,7 @@ declare const useAdminSalesChannel: (id: string, options?: UseQueryOptionsWrappe
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly sales_channel?: _medusajs_medusa.SalesChannel | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of sales channels. The sales channels can be filtered by fields such as `q` or `name`
@@ -20391,7 +20391,7 @@ declare const useAdminSalesChannels: (query?: AdminGetSalesChannelsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20421,7 +20421,7 @@ declare const useAdminSalesChannels: (query?: AdminGetSalesChannelsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -20451,7 +20451,7 @@ declare const useAdminSalesChannels: (query?: AdminGetSalesChannelsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20481,7 +20481,7 @@ declare const useAdminSalesChannels: (query?: AdminGetSalesChannelsParams, optio
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly sales_channels?: _medusajs_medusa.SalesChannel[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -20853,7 +20853,7 @@ declare const useAdminShippingOptions: (query?: AdminGetShippingOptionsParams, o
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly shipping_options?: _medusajs_medusa.ShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20883,7 +20883,7 @@ declare const useAdminShippingOptions: (query?: AdminGetShippingOptionsParams, o
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly shipping_options?: _medusajs_medusa.ShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -20913,7 +20913,7 @@ declare const useAdminShippingOptions: (query?: AdminGetShippingOptionsParams, o
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly shipping_options?: _medusajs_medusa.ShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -20943,7 +20943,7 @@ declare const useAdminShippingOptions: (query?: AdminGetShippingOptionsParams, o
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly shipping_options?: _medusajs_medusa.ShippingOption[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a shipping option's details.
@@ -21003,7 +21003,7 @@ declare const useAdminShippingOption: (id: string, options?: UseQueryOptionsWrap
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_option?: _medusajs_medusa.ShippingOption | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21030,7 +21030,7 @@ declare const useAdminShippingOption: (id: string, options?: UseQueryOptionsWrap
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_option?: _medusajs_medusa.ShippingOption | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -21057,7 +21057,7 @@ declare const useAdminShippingOption: (id: string, options?: UseQueryOptionsWrap
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_option?: _medusajs_medusa.ShippingOption | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21084,7 +21084,7 @@ declare const useAdminShippingOption: (id: string, options?: UseQueryOptionsWrap
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_option?: _medusajs_medusa.ShippingOption | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -21274,7 +21274,7 @@ declare const useAdminShippingProfiles: (options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profiles?: _medusajs_medusa.ShippingProfile[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21301,7 +21301,7 @@ declare const useAdminShippingProfiles: (options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profiles?: _medusajs_medusa.ShippingProfile[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -21328,7 +21328,7 @@ declare const useAdminShippingProfiles: (options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profiles?: _medusajs_medusa.ShippingProfile[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21355,7 +21355,7 @@ declare const useAdminShippingProfiles: (options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profiles?: _medusajs_medusa.ShippingProfile[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a shipping profile's details.
@@ -21417,7 +21417,7 @@ declare const useAdminShippingProfile: (id: string, options?: UseQueryOptionsWra
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profile?: _medusajs_medusa.ShippingProfile | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21444,7 +21444,7 @@ declare const useAdminShippingProfile: (id: string, options?: UseQueryOptionsWra
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profile?: _medusajs_medusa.ShippingProfile | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -21471,7 +21471,7 @@ declare const useAdminShippingProfile: (id: string, options?: UseQueryOptionsWra
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profile?: _medusajs_medusa.ShippingProfile | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21498,7 +21498,7 @@ declare const useAdminShippingProfile: (id: string, options?: UseQueryOptionsWra
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly shipping_profile?: _medusajs_medusa.ShippingProfile | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -21761,7 +21761,7 @@ declare const useAdminStockLocations: (query?: AdminGetStockLocationsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly stock_locations?: _medusajs_types.StockLocationExpandedDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21791,7 +21791,7 @@ declare const useAdminStockLocations: (query?: AdminGetStockLocationsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly stock_locations?: _medusajs_types.StockLocationExpandedDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -21821,7 +21821,7 @@ declare const useAdminStockLocations: (query?: AdminGetStockLocationsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly stock_locations?: _medusajs_types.StockLocationExpandedDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21851,7 +21851,7 @@ declare const useAdminStockLocations: (query?: AdminGetStockLocationsParams, opt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly stock_locations?: _medusajs_types.StockLocationExpandedDTO[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a stock location's details.
@@ -21911,7 +21911,7 @@ declare const useAdminStockLocation: (id: string, options?: UseQueryOptionsWrapp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly stock_location?: _medusajs_types.StockLocationExpandedDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21938,7 +21938,7 @@ declare const useAdminStockLocation: (id: string, options?: UseQueryOptionsWrapp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly stock_location?: _medusajs_types.StockLocationExpandedDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -21965,7 +21965,7 @@ declare const useAdminStockLocation: (id: string, options?: UseQueryOptionsWrapp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly stock_location?: _medusajs_types.StockLocationExpandedDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -21992,7 +21992,7 @@ declare const useAdminStockLocation: (id: string, options?: UseQueryOptionsWrapp
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly stock_location?: _medusajs_types.StockLocationExpandedDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -22158,7 +22158,7 @@ declare const useAdminStorePaymentProviders: (options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_providers?: _medusajs_medusa.PaymentProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22185,7 +22185,7 @@ declare const useAdminStorePaymentProviders: (options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_providers?: _medusajs_medusa.PaymentProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -22212,7 +22212,7 @@ declare const useAdminStorePaymentProviders: (options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_providers?: _medusajs_medusa.PaymentProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22239,7 +22239,7 @@ declare const useAdminStorePaymentProviders: (options?: UseQueryOptionsWrapper<R
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly payment_providers?: _medusajs_medusa.PaymentProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a list of available tax providers in a store.
@@ -22303,7 +22303,7 @@ declare const useAdminStoreTaxProviders: (options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_providers?: _medusajs_medusa.TaxProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22330,7 +22330,7 @@ declare const useAdminStoreTaxProviders: (options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_providers?: _medusajs_medusa.TaxProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -22357,7 +22357,7 @@ declare const useAdminStoreTaxProviders: (options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_providers?: _medusajs_medusa.TaxProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22384,7 +22384,7 @@ declare const useAdminStoreTaxProviders: (options?: UseQueryOptionsWrapper<Respo
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_providers?: _medusajs_medusa.TaxProvider[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves the store's details.
@@ -22438,7 +22438,7 @@ declare const useAdminStore: (options?: UseQueryOptionsWrapper<Response<AdminExt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly store?: _medusajs_medusa_dist_types_store.ExtendedStoreDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22465,7 +22465,7 @@ declare const useAdminStore: (options?: UseQueryOptionsWrapper<Response<AdminExt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly store?: _medusajs_medusa_dist_types_store.ExtendedStoreDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -22492,7 +22492,7 @@ declare const useAdminStore: (options?: UseQueryOptionsWrapper<Response<AdminExt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly store?: _medusajs_medusa_dist_types_store.ExtendedStoreDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22519,7 +22519,7 @@ declare const useAdminStore: (options?: UseQueryOptionsWrapper<Response<AdminExt
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly store?: _medusajs_medusa_dist_types_store.ExtendedStoreDTO | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -22715,7 +22715,7 @@ declare const useAdminSwaps: (query?: AdminGetSwapsParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly swaps?: _medusajs_medusa.Swap[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22745,7 +22745,7 @@ declare const useAdminSwaps: (query?: AdminGetSwapsParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly swaps?: _medusajs_medusa.Swap[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -22775,7 +22775,7 @@ declare const useAdminSwaps: (query?: AdminGetSwapsParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly swaps?: _medusajs_medusa.Swap[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22805,7 +22805,7 @@ declare const useAdminSwaps: (query?: AdminGetSwapsParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly swaps?: _medusajs_medusa.Swap[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a swap's details.
@@ -22860,7 +22860,7 @@ declare const useAdminSwap: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22887,7 +22887,7 @@ declare const useAdminSwap: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -22914,7 +22914,7 @@ declare const useAdminSwap: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -22941,7 +22941,7 @@ declare const useAdminSwap: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly swap?: _medusajs_medusa.Swap | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -23363,7 +23363,7 @@ declare const useAdminTaxRates: (query?: AdminGetTaxRatesParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly tax_rates?: _medusajs_medusa.TaxRate[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -23393,7 +23393,7 @@ declare const useAdminTaxRates: (query?: AdminGetTaxRatesParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly tax_rates?: _medusajs_medusa.TaxRate[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -23423,7 +23423,7 @@ declare const useAdminTaxRates: (query?: AdminGetTaxRatesParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly tax_rates?: _medusajs_medusa.TaxRate[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -23453,7 +23453,7 @@ declare const useAdminTaxRates: (query?: AdminGetTaxRatesParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly tax_rates?: _medusajs_medusa.TaxRate[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a tax rate's details.
@@ -23534,7 +23534,7 @@ declare const useAdminTaxRate: (id: string, query?: AdminGetTaxRatesParams, opti
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_rate?: _medusajs_medusa.TaxRate | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -23561,7 +23561,7 @@ declare const useAdminTaxRate: (id: string, query?: AdminGetTaxRatesParams, opti
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_rate?: _medusajs_medusa.TaxRate | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -23588,7 +23588,7 @@ declare const useAdminTaxRate: (id: string, query?: AdminGetTaxRatesParams, opti
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_rate?: _medusajs_medusa.TaxRate | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -23615,7 +23615,7 @@ declare const useAdminTaxRate: (id: string, query?: AdminGetTaxRatesParams, opti
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly tax_rate?: _medusajs_medusa.TaxRate | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -24169,7 +24169,7 @@ declare const useAdminUsers: (query?: AdminGetUsersParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly users?: Omit<_medusajs_medusa.User, "password_hash">[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24199,7 +24199,7 @@ declare const useAdminUsers: (query?: AdminGetUsersParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly users?: Omit<_medusajs_medusa.User, "password_hash">[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -24229,7 +24229,7 @@ declare const useAdminUsers: (query?: AdminGetUsersParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly users?: Omit<_medusajs_medusa.User, "password_hash">[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24259,7 +24259,7 @@ declare const useAdminUsers: (query?: AdminGetUsersParams, options?: UseQueryOpt
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly users?: Omit<_medusajs_medusa.User, "password_hash">[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves an admin user's details.
@@ -24316,7 +24316,7 @@ declare const useAdminUser: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24343,7 +24343,7 @@ declare const useAdminUser: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -24370,7 +24370,7 @@ declare const useAdminUser: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24397,7 +24397,7 @@ declare const useAdminUser: (id: string, options?: UseQueryOptionsWrapper<Respon
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly user?: Omit<_medusajs_medusa.User, "password_hash"> | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**
@@ -24707,7 +24707,7 @@ declare const useAdminVariants: (query?: AdminGetVariantsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly variants?: _medusajs_medusa_dist_types_pricing.PricedVariant[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24737,7 +24737,7 @@ declare const useAdminVariants: (query?: AdminGetVariantsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly variants?: _medusajs_medusa_dist_types_pricing.PricedVariant[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -24767,7 +24767,7 @@ declare const useAdminVariants: (query?: AdminGetVariantsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly variants?: _medusajs_medusa_dist_types_pricing.PricedVariant[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24797,7 +24797,7 @@ declare const useAdminVariants: (query?: AdminGetVariantsParams, options?: UseQu
     readonly offset?: number | undefined;
     readonly count?: number | undefined;
     readonly variants?: _medusajs_medusa_dist_types_pricing.PricedVariant[] | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves a product variant's details.
@@ -24886,7 +24886,7 @@ declare const useAdminVariant: (id: string, query?: AdminGetVariantParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa_dist_types_pricing.PricedVariant | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24913,7 +24913,7 @@ declare const useAdminVariant: (id: string, query?: AdminGetVariantParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa_dist_types_pricing.PricedVariant | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -24940,7 +24940,7 @@ declare const useAdminVariant: (id: string, query?: AdminGetVariantParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa_dist_types_pricing.PricedVariant | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -24967,7 +24967,7 @@ declare const useAdminVariant: (id: string, query?: AdminGetVariantParams, optio
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa_dist_types_pricing.PricedVariant | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 /**
  * This hook retrieves the available inventory of a product variant.
@@ -25033,7 +25033,7 @@ declare const useAdminVariantsInventory: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa.VariantInventory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -25060,7 +25060,7 @@ declare const useAdminVariantsInventory: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa.VariantInventory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: Error;
     readonly isError: true;
@@ -25087,7 +25087,7 @@ declare const useAdminVariantsInventory: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa.VariantInventory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 } | {
     readonly error: null;
     readonly isError: false;
@@ -25114,7 +25114,7 @@ declare const useAdminVariantsInventory: (id: string, options?: UseQueryOptionsW
     readonly remove: () => void;
     readonly fetchStatus: _tanstack_react_query.FetchStatus;
     readonly variant?: _medusajs_medusa.VariantInventory | undefined;
-    readonly response?: _medusajs_medusa_js.HTTPResponse | undefined;
+    readonly response?: exposed_medusa_js.HTTPResponse | undefined;
 };
 
 /**

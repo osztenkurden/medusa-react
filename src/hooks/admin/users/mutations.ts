@@ -8,7 +8,7 @@ import {
   AdminCreateUserPayload,
   AdminUpdateUserPayload,
   Response,
-} from "@medusajs/medusa-js"
+} from "exposed-medusa-js"
 import {
   useMutation,
   UseMutationOptions,

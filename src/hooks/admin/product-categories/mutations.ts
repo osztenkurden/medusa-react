@@ -3,7 +3,7 @@ import {
   UseMutationOptions,
   useQueryClient,
 } from "@tanstack/react-query"
-import { Response } from "@medusajs/medusa-js"
+import { Response } from "exposed-medusa-js"
 import {
   AdminDeleteProductCategoriesCategoryProductsBatchReq,
   AdminPostProductCategoriesCategoryProductsBatchReq,

@@ -1,4 +1,5 @@
 {
+  "name": "exposed-medusa-react",
   "version": "9.0.14",
   "license": "MIT",
   "main": "dist/index.js",
@@ -31,7 +32,6 @@
     "react": "^16.8 || ^17.0 || ^18.0",
     "react-dom": "^16.8 || ^17.0 || ^18.0"
   },
-  "name": "medusa-react",
   "author": "Zakaria S. El Asri",
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -63,7 +63,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@medusajs/medusa-js": "github:osztenkurden/medusa-js"
+    "exposed-medusa-js": "^6.1.6"
   },
   "msw": {
     "workerDirectory": "public"

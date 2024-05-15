@@ -2,7 +2,7 @@ import {
   AdminInviteDeleteRes,
   AdminPostInvitesInviteAcceptReq,
 } from "@medusajs/medusa"
-import { AdminPostInvitesPayload, Response } from "@medusajs/medusa-js"
+import { AdminPostInvitesPayload, Response } from "exposed-medusa-js"
 import {
   useMutation,
   UseMutationOptions,

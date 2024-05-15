@@ -3,7 +3,7 @@ import {
   AdminOrdersListRes,
   AdminOrdersRes,
 } from "@medusajs/medusa"
-import { Response } from "@medusajs/medusa-js"
+import { Response } from "exposed-medusa-js"
 import { FindParams } from "@medusajs/medusa/dist/types/common"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"

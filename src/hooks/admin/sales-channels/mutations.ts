@@ -6,7 +6,7 @@ import {
   AdminSalesChannelsDeleteRes,
   AdminSalesChannelsRes,
 } from "@medusajs/medusa"
-import { Response } from "@medusajs/medusa-js"
+import { Response } from "exposed-medusa-js"
 import {
   useMutation,
   UseMutationOptions,

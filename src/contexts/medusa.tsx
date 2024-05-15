@@ -4,7 +4,7 @@
  * @customNamespace Providers.Medusa
  */
 
-import Medusa from "@medusajs/medusa-js"
+import Medusa from "exposed-medusa-js"
 import {
   QueryClientProvider,
   QueryClientProviderProps,

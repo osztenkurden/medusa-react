@@ -9,7 +9,7 @@ import {
   AdminPostCustomersCustomerReq,
   AdminPostCustomersReq,
 } from "@medusajs/medusa"
-import { Response } from "@medusajs/medusa-js"
+import { Response } from "exposed-medusa-js"
 
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
